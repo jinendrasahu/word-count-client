@@ -16,13 +16,14 @@ function App() {
       setLoading("");
       setError("Error:Only numeric value accepted!");
     } else{
-      fetch('https://word-counts.herokuapp.com/' + num).then((result) => result.json()).then((data) => {
-        var x = data.map((val, id) => <tr className="Data-list-item" key={id}><td>{id + 1}.</td><td style={{ fontWeight: 'bold' }}>{val[0]}</td><td>{val[1]}</td></tr>);
+      fetch('https://word-counts.herokuapp.com/' + num).then((result) =>result.json()).then((data) => {
+        var x = data.map((val, id) => <tr className="Data-list-item" key={id}><td>{id + 1}.</td><td style={{ fontWeight: 'bold' }}>{val.word}</td><td>{val.count}</td></tr>);
         setLoading("");
         setWords(x);
 
       }
-      ).catch((err) => setError(err));
+      ).catch((err) => setError("Some error occured")).finally(()=>setLoading(""));
+      
     }
   }
 
@@ -41,7 +42,9 @@ function App() {
       <div className="Container-item" id="Data">
         <div id="Data-show">
           {words && <div id="Data-head"><div id="Sno">S.No.</div><div id="Word">Word</div><div id="Occ">Occurrence</div></div>}
-          {loading ? <p style={{ fontWeight: 'bold', marginLeft: '7px' }}>{loading}</p> : null}{error ? <p style={{ color: 'red', fontWeight: 'bold', marginLeft: '7px' }}>{error}</p> : null}<table id="Data-list"><tbody>{words ? words : null}</tbody></table>
+          {loading ? <p style={{ fontWeight: 'bold', marginLeft: '7px' }}>{loading}</p> : null}
+          {error ? <p style={{ color: 'red', fontWeight: 'bold', marginLeft: '7px' }}>{error}</p> : null}
+          <table id="Data-list"><tbody>{words ? words : null}</tbody></table>
         </div>
       </div>
     </div>
