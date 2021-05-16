@@ -29,7 +29,7 @@ function App() {
 
   return (<>
     <div className="Navbar">
-      <div className="Nav-item" id="Title"><span style={{ color: 'teal' }}>INVICTUS</span>  {num === "" ? "N" : num}-Most Frequently Occurred Words</div>
+      <div className="Nav-item" id="Title"><span style={{ color: 'teal' }}>INVICTUS</span>  {num === "" || num.length>10 ? "N" : num}-Most Frequently Occurred Words</div>
     </div>
     <div className="Container">
 
