@@ -27,5 +27,6 @@ so if the input type is not numeric(0-9) then it will show error and if input va
 4. I have used custom error message in catch function for assigning error message to error(React hook) because if we directly assign 
    error(catch function parameter) to hook and render it like this setError(err) then it will show error.another method to resolve it is
    to convert error to string by concatination.
+   this will also solve internet connectivity error message.
 5. if we uses && operator to render react hooks(ex: {words && words}) in jsx then it will give an error each time when DOM element 
    rerender the solution of this we can use conditional operator(?:) and null value (ex: {words?words:null})
