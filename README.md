@@ -1,4 +1,4 @@
-# word-count-client
+# word-count-client (https://word-occurrence.netlify.app/)
 this is a frontend part of word count which will take input n and show all n most frequently occurred word.
 
 I have created react app by using CLI-npx create react app 
